@@ -450,6 +450,8 @@ cmd_opsmenu(int n, char **a)
 }
 
 static const char *testmenu[] = {
+	"[mt]  My Test			     ",
+	"[mtt] My Thread Test		     ",
 	"[at]  Array test                    ",
 	"[bt]  Bitmap test                   ",
 	"[km1] Kernel malloc test            ",
@@ -555,6 +557,8 @@ static struct {
 	{ "kh",         cmd_kheapstats },
 
 	/* base system tests */
+	{ "mt",		mytest },
+	{ "mtt",	mythreadtest },
 	{ "at",		arraytest },
 	{ "bt",		bitmaptest },
 	{ "km1",	malloctest },
