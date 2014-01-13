@@ -4,6 +4,7 @@
 #include <thread.h>
 #include <current.h>
 
+
 static
 void thread_function(void *ptr, unsigned long value){
 	char* name = ptr;
