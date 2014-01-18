@@ -72,10 +72,13 @@ void V(struct semaphore *);
  * The name field is for easier debugging. A copy of the name is
  * (should be) made internally.
  */
-struct lock {
-        char *lk_name;
-        // add what you need here
-        // (don't forget to mark things volatile as needed)
+	struct lock {
+       		char *lk_name;
+	        volatile struct thread *lk_thread;
+		volatile int lk_is_locked;
+		struct wchan *lk_wchan;
+		struct spinlock lk_spinlock;
+
 };
 
 struct lock *lock_create(const char *name);
