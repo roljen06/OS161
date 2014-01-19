@@ -13,13 +13,13 @@ static void thread_function(void *ptr, unsigned long value){
 }
 
 int mythreadtest(int nargs, char **args){
-kprintf("Running my thread test");
-   (void)nargs; //Avoid unused parameter warning
-   //args[0] is name of calling program
-   int n = (*args[1])-'0';
-   //NOT WORKING YET
-  for (int i = 0; i < n; ++i){
-      thread_fork("thread test thread", NULL, thread_function, &i, 1);
+	kprintf("Running my thread test");
+	   (void)nargs; //Avoid unused parameter warning
+  	 //args[0] is name of calling program
+  	 int n = (*args[1])-'0';
+  	 //NOT WORKING YET
+ 	 for (int i = 0; i < n; ++i){
+ 	     thread_fork("thread test thread", NULL, thread_function, &i, 1);
 
  }
 return 0;
