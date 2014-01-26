@@ -185,8 +185,6 @@ lock_destroy(struct lock *lock)
         
         kfree(lock->lk_name);
 	kfree(lock_>lk_wchan);
-	kfree(lock);
-
 	spinlock_cleanup(&lock->lk_spinlock);
 
 	kfree(lock);
@@ -211,7 +209,7 @@ lock_acquire(struct lock *lock)
          	spinlock_acquire(&lock->lk_spinlock);
        }
      
-       KASSERT(!lockk_is_locked); 
+       KASSERT(!lock->lk_is_locked); 
        lock->lk_is_locked = 1;
        lock->lk_thread = curthread;
        spinlock_release(&lock->lk_spinlock);
@@ -237,7 +235,7 @@ lock_release(struct lock *lock)
 bool
 lock_do_i_hold(struct lock *lock)
 {
-        KASSERT(lock !=NULL);
+        KASSERT(lock!=NULL);
 	return lock->lk_thread==curthread;
 
 }
