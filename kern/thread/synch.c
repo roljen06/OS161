@@ -182,11 +182,11 @@ lock_destroy(struct lock *lock)
         KASSERT(lock != NULL);
 
 
-        
-        kfree(lock->lk_name);
-	kfree(lock_>lk_wchan);
-	spinlock_cleanup(&lock->lk_spinlock);
-
+        spinlock_cleanup(&lock->lk_spinlock);
+	if(lock->lk_wchan != NULL)
+		wchan_destroy(lock->lk_wchan);
+	
+	kfree(lock->lk_name);
 	kfree(lock);
 }
 
@@ -195,10 +195,7 @@ lock_acquire(struct lock *lock)
 {
 	KASSERT(lock!=NULL);
 
-	if (lock->lk_thread==curthread && curthread!=NULL){
-		kprintf("Lock acquired by same thread twice: %!\n", curthread->t_name);
-	}
-
+	
 	KASSERT(curthread->t_in_interrupt == false);
 
 	spinlock_acquire(&lock->lk_spinlock);
