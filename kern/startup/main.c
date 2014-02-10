@@ -54,6 +54,7 @@
 #include <version.h>
 #include "autoconf.h"  // for pseudoconfig
 #include <opt-A0.h> //defines preprocessor symbol OPT_A0
+#include <hello.h>
 
 /*
  * These two pieces of data are maintained by the makefiles and build system.
