@@ -1,3 +1,0 @@
-git add .
-git commit -m "automated github update"
-git push origin master

@@ -17,8 +17,12 @@ int mythreadtest(int nargs, char **args){
 	   (void)nargs; //Avoid unused parameter warning
   	 //args[0] is name of calling program
   	 int n = (*args[1])-'0';
+<<<<<<< HEAD
  	
  	 for (int i = 0; i < n; ++i){
+=======
+  	 for (int i = 0; i < n; ++i){
+>>>>>>> a7836a0773c376c41a4d996bc0a7f01f7a8215ce
  	     thread_fork("thread test thread", NULL, thread_function, &i, 1);
 
  }
