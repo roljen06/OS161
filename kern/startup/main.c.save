@@ -84,6 +84,7 @@ void
 boot(void)
 {
 	/*
+
 	 * The order of these is important!
 	 * Don't go changing it without thinking about the consequences.
 	 *
@@ -142,7 +143,6 @@ boot(void)
 	#if OPT_A0
 		hello();
 	#endif 
-	hello();
 }
 
 /*
