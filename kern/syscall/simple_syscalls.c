@@ -29,11 +29,11 @@ int sys_printstring(char * str, int len) {
 	return 0;
 }
 
-//int sys_write(int fd, const void* buf, size_t nbytes) {
-//	char kbuf[KBUF_MAX];
-//	if (nbytes >= KBUF_MAX) return EFAULT;
-//	copyin(buf, kbuf, nbytes);
-//	kbuf[nbytes+1] = 0;
-//	kprintf(kbuf);
-//	return 0;
-//}
+int sys_write(int fd, const void* buf, size_t nbytes) {
+	char kbuf[KBUF_MAX];
+	if (nbytes >= KBUF_MAX) return EFAULT;
+	copyin(buf, kbuf, nbytes);
+	kbuf[nbytes+1] = 0;
+	kprintf(kbuf);
+	return 0;
+}
