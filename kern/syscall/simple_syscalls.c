@@ -4,7 +4,6 @@
 #include <lib.h>
 #include <mips/trapframe.h>
 #include <thread.h>
-#include <copyinout.h>
 #include <current.h>
 #include <syscall.h>
 
