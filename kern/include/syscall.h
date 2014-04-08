@@ -57,5 +57,9 @@ void enter_new_process(int argc, userptr_t argv, vaddr_t stackptr,
 
 int sys_reboot(int code);
 int sys___time(userptr_t user_seconds, userptr_t user_nanoseconds);
-
+int sys_helloworld(void);
+int sys__exit(int);
+int sys_printint(int);
+int sys_printstring(char* s, size_t len);
+int write(int filehandle, const void *buf, size_t size);
 #endif /* _SYSCALL_H_ */
