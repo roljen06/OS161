@@ -13,7 +13,7 @@ static void thread_function(void *ptr, unsigned long value){
 }
 
 int mythreadtest(int nargs, char **args){
-	kprintf("Running my thread test");
+	kprintf("Running my thread test\n\n");
 	   (void)nargs; //Avoid unused parameter warning
   	 //args[0] is name of calling program
   	 int n = (*args[1])-'0';

@@ -4,6 +4,7 @@
 #include <lib.h>
 #include <mips/trapframe.h>
 #include <thread.h>
+#include <copyinout.h>
 #include <current.h>
 #include <syscall.h>
 
@@ -16,12 +17,13 @@ int sys_helloworld(void){
 }
 
 void sys__exit(int code){
-  thread_exit();
+	thread_exit();
+	return 0;
 }
 
-int sys_printint(int val) {
-	kprintf("%d\n", val);
-	return 0;
+int sys_printint(int i) {
+	kprintf("%d\n", i);
+	
 }
 
 int sys_printstring(char * str, int len) {
@@ -31,7 +33,7 @@ int sys_printstring(char * str, int len) {
 
 int sys_write(int fd, const void* buf, size_t nbytes) {
 	char kbuf[KBUF_MAX];
-	if (nbytes >= KBUF_MAX) return EFAULT;
+	(nbytes >= KBUF_MAX) return EFAULT;
 	copyin(buf, kbuf, nbytes);
 	kbuf[nbytes+1] = 0;
 	kprintf(kbuf);

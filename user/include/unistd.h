@@ -132,7 +132,9 @@ int reboot(int code);
 int sync(void);
 /* mkdir - see sys/stat.h */
 int rmdir(const char *dirname);
-
+int helloworld(void);
+int printint(int);
+int printstring(char* s, size_t len);
 /* Recommended. */
 int getpid(void);
 int ioctl(int filehandle, int code, void *buf);

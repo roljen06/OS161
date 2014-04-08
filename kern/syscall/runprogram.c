@@ -56,7 +56,7 @@ runprogram(char *progname)
 {
 	struct addrspace *as;
 	struct vnode *v;
-	vaddr_t entrypoint, stackptr;
+	vaddr_t entrypoint, stackptr, argptr;
 	int result;
 
 	/* Open the file. */
@@ -98,8 +98,7 @@ runprogram(char *progname)
 	}
 
 	/* Warp to user mode. */
-	enter_new_process(0 /*argc*/, NULL /*userspace addr of argv*/,
-			  stackptr, entrypoint);
+	enter_new_process(nargs, argptr, stackptr, entrypoint);
 	
 	/* enter_new_process does not return. */
 	panic("enter_new_process returned\n");
