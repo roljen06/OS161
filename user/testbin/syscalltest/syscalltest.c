@@ -1,5 +1,11 @@
+#include <sys/types.h>
 #include <unistd.h>
+#include <err.h>
+#include <sys/stat.h>
 #include <stdio.h>
+#include <string.h>
+#include <errno.h>
+#include <simple_syscalls.c>
 
 void
 main(int argc, char *argv[])
